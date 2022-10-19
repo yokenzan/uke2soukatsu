@@ -1,8 +1,8 @@
-UKE = function (payer, seikyuYm, hospital) {
-    this.payer    = payer;
-    this.seikyuYm = seikyuYm;
-    this.hospital = hospital;
-    this.receipts = [];
+UKE = function (shinsaShiharaiKikan, seikyuuNengetsu, hospital) {
+    this.shinsaShiharaiKikan = shinsaShiharaiKikan;
+    this.seikyuuNengetsu     = seikyuuNengetsu;
+    this.hospital            = hospital;
+    this.receipts            = [];
 };
 
 UKE.prototype.toArray = function () {

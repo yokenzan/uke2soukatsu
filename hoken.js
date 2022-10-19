@@ -1,54 +1,56 @@
-HokenKohiList = function () {
-    this.iho   = null;
-    this.kohis = [];
+/** レセプトで使っている医療保険と公費負担医療のリスト */
+HokenKouhiList = function () {
+    this.iryouHoken = null;
+    this.kouhis     = [];
 };
 
-HokenKohiList.prototype.toArray = function () {
+HokenKouhiFutanIryouList.prototype.toArray = function () {
     var hokens = [];
 
-    if (this.iho !== null) hokens.push(this.iho);
+    if (this.iryouHoken !== null) hokens.push(this.iryouHoken);
 
-    this.kohis.forEach(function (kohi) { kohi && hokens.push(kohi); });
+    this.kouhis.forEach(function (kouhi) { kouhi && hokens.push(kouhi); });
 
     return hokens;
 };
 
-Iho = function (hokenjaBango, dayCount,  point, burdenAmount) {
-    this.hokenjaBango = hokenjaBango;
-    this.dayCount     = dayCount;
-    this.point        = point;
-    this.burdenAmount = burdenAmount;
+/** 医療保険レコード */
+IryouHoken = function (hokenjaBangou, jitsuNissuu, tensuu, ichibuFutankin) {
+    this.hokenjaBangou  = hokenjaBangou;
+    this.jitsuNissuu    = jitsuNissuu;
+    this.tensuu         = tensuu;
+    this.ichibuFutankin = ichibuFutankin;
 };
-Iho.prototype.getHobetsuCategory = function () {
-    var text    = '';
-    var hobetsu = this.hokenjaBango.substring(0, 2);
+IryouHoken.prototype.getHoubetsuCategory = function () {
+    var text     = '';
+    var houbetsu = this.hokenjaBangou.substring(0, 2);
 
-    switch (hobetsu) {
+    switch (houbetsu) {
         case '  ':
-            text = HobetsuCategories[0];
+            text = HoubetsuCategories[0];
             break;
         default:
-            text = HobetsuCategories[Number(hobetsu)];
+            text = HoubetsuCategories[Number(houbetsu)];
     };
 
     return text;
 };
-Iho.prototype.getPrefectureCode = function () {
-    return this.hokenjaBango.substring(this.hokenjaBango.length - 6, this.hokenjaBango.length - 4);
+IryouHoken.prototype.getPrefectureCode = function () {
+    return this.hokenjaBangou.substring(this.hokenjaBangou.length - 6, this.hokenjaBangou.length - 4);
 };
 
-Kohi = function (futanshaBango, dayCount, point, parendBurdenAmount, burdenAmount) {
-    this.futanshaBango      = futanshaBango;
-    this.dayCount           = dayCount;
-    this.point              = point;
-    this.parendBurdenAmount = parendBurdenAmount;
-    this.burdenAmount       = burdenAmount;
+/** 公費負担医療レコード */
+KouhiFutanIryou = function (futanshaBangou, jitsuNissuu, tensuu, ichibuFutankin) {
+    this.futanshaBangou      = futanshaBangou;
+    this.jitsuNissuu        = jitsuNissuu;
+    this.tensuu             = tensuu;
+    this.ichibuFutankin     = ichibuFutankin;
 };
-Kohi.prototype.getHobetsuCategory = function () {
-    return HobetsuCategories[Number(this.futanshaBango.substring(0, 2))];
+KouhiFutanIryou.prototype.getHoubetsuCategory = function () {
+    return HoubetsuCategories[Number(this.futanshaBangou.substring(0, 2))];
 };
 
-HobetsuCategories = {
+HoubetsuCategories = {
     0: '国保',
     1: '01（協会）',
     2: '02（船）',

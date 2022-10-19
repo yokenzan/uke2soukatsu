@@ -6,16 +6,21 @@
     <title>UKE → 総括表</title>
 </head>
 <body>
-    <form method="post" action="https://script.google.com/a/macros/henry.jp/s/AKfycbw2bVnw57pQ1bu_7K1X2CEfuiEMRgL72eaXgFq8SLVh7l4FHwDU5sUU70UgRbSvd5BQZw/exec">
-        <p>社保<input type="file" name="shaho_uke_file_path"  accept=".UKE"/></p>
-        <p>国保<input type="file" name="kokuho_uke_file_path" accept=".UKE"/></p>
-        <input type="submit" value="実行"/>
+    <h2>本番</h2>
+    <form name="prd" method="post" action="https://script.google.com/a/macros/henry.jp/s/AKfycbwiASzr-MfBpDrfoKwKac_S0RjG03Nzjs5XVfQ9FP63/exec">
+        <ul>
+            <li>社保<input type="file" name="shaho_uke_file_path"  accept=".UKE"/></li>
+            <li>国保<input type="file" name="kokuho_uke_file_path" accept=".UKE"/></li>
+            <li><input type="submit" value="実行"/></li>
+        </ul>
     </form>
     <h2>開発</h2>
-    <form method="post" action="https://script.google.com/a/macros/henry.jp/s/AKfycbw2bVnw57pQ1bu_7K1X2CEfuiEMRgL72eaXgFq8SLVh7l4FHwDU5sUU70UgRbSvd5BQZw/exec">
-        <p>社保<input type="file" name="shaho_uke_file_path"  accept=".UKE"/></p>
-        <p>国保<input type="file" name="kokuho_uke_file_path" accept=".UKE"/></p>
-        <input type="submit" value="実行"/>
+    <form name="dev" method="post" action="https://script.google.com/a/macros/henry.jp/s/AKfycbwiASzr-MfBpDrfoKwKac_S0RjG03Nzjs5XVfQ9FP63/dev">
+        <ul>
+            <li>社保<input type="file" name="shaho_uke_file_path"  accept=".UKE"/></li>
+            <li>国保<input type="file" name="kokuho_uke_file_path" accept=".UKE"/></li>
+            <li><input type="submit" value="実行"/></li>
+        </ul>
     </form>
 </body>
 </html>

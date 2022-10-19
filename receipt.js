@@ -1,30 +1,26 @@
-Receipt = function (id, patient, hospital, shinryoYm, receiptTypeList) {
-    this.id              = id;
-    this.patient         = patient;
-    this.hospital        = hospital;
-    this.shinryoYm       = shinryoYm;
-    this.receiptTypeList = receiptTypeList;
-    this.hokenKohiList   = new HokenKohiList();
+Receipt = function (id, patient, hospital, shinryouNengetsu, receiptTypeList) {
+    this.id               = id;
+    this.patient          = patient;
+    this.hospital         = hospital;
+    this.shinryouNengetsu = shinryouNengetsu;
+    this.receiptTypeList  = receiptTypeList;
+    this.hokenKouhiList   = new HokenKouhiList();
 };
 
-Receipt.prototype.addIho = function (iho) {
-    this.hokenKohiList.iho = iho;
+Receipt.prototype.addIryouHoken = function (iryouHoken) {
+    this.hokenKouhiList.iryouHoken = iryouHoken;
 };
 
-Receipt.prototype.addKohi = function (kohi) {
-    this.hokenKohiList.kohis.push(kohi);
+Receipt.prototype.addKouhiFutanIryou = function (kouhi) {
+    this.hokenKouhiList.kouhis.push(kouhi);
 };
 
-Receipt.prototype.getHokens = function () {
-    return this.hokenKohiList.toArray();
+Receipt.prototype.getIryouHoken = function () {
+    return this.hokenKouhiList.iryouHoken;
 };
 
-Receipt.prototype.getIho = function () {
-    return this.hokenKohiList.iho;
-};
-
-Receipt.prototype.getKohis = function () {
-    return this.hokenKohiList.kohis;
+Receipt.prototype.getKouhiFutanIryous = function () {
+    return this.hokenKouhiList.kouhis;
 };
 
 Receipt.prototype.getTypesAsCode = function () {
@@ -39,15 +35,15 @@ Receipt.prototype.getHokenMultipleType = function () {
     return this.receiptTypeList.hokenMultipleType;
 };
 
-Receipt.prototype.getAgeType = function () {
-    return this.receiptTypeList.ageType;
+Receipt.prototype.getPatientAgeType = function () {
+    return this.receiptTypeList.patientAgeType;
 };
 
-ReceiptTypeList = function (ikaOrShikaType, mainHokenType, hokenMultipleType, ageType) {
+ReceiptTypeList = function (ikaOrShikaType, mainHokenType, hokenMultipleType, patientAgeType) {
     this.ikaOrShikaType    = Number(ikaOrShikaType);
     this.mainHokenType     = Number(mainHokenType);
     this.hokenMultipleType = Number(hokenMultipleType);
-    this.ageType           = Number(ageType);
+    this.patientAgeType    = Number(patientAgeType);
 };
 
 ReceiptTypeList.prototype.toCombinedCode = function () {
@@ -55,7 +51,7 @@ ReceiptTypeList.prototype.toCombinedCode = function () {
         this.ikaOrShikaType,
         this.mainHokenType,
         this.hokenMultipleType,
-        this.ageType
+        this.patientAgeType
     ].join('');
 };
 
@@ -73,7 +69,7 @@ ReceiptHokenMultipleTypes = {
     4: '４併'
 };
 
-ReceiptAgeTypes = {
+ReceiptPatientAgeTypes = {
     2: '本外',
     4: '六外',
     6: '家外',
