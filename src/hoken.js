@@ -1,5 +1,5 @@
 /** レセプトで使っている医療保険と公費負担医療のリスト */
-HokenKouhiList = function () {
+HokenKouhiFutanIryouList = function () {
     this.iryouHoken = null;
     this.kouhis     = [];
 };

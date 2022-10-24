@@ -4,7 +4,7 @@ Receipt = function (id, patient, hospital, shinryouNengetsu, receiptTypeList) {
     this.hospital         = hospital;
     this.shinryouNengetsu = shinryouNengetsu;
     this.receiptTypeList  = receiptTypeList;
-    this.hokenKouhiList   = new HokenKouhiList();
+    this.hokenKouhiList   = new HokenKouhiFutanIryouList();
 };
 
 Receipt.prototype.addIryouHoken = function (iryouHoken) {
