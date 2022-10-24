@@ -1,22 +1,3 @@
-/**
- * TODO:
- *  - enumの定数化
- *  - 変数が全部 var 宣言
- */
-
-
-/*
- * - ?? open index.html and give uke files(kokuho and shaho)
-  * - press submit button and start this script
-  * - verify given files are really uke files
-  * - start parse uke files
-  * - clone a new workbook file from the template workbook file
-  *  - ?? rename the cloned workbook seikyuYm and Hosptal name
-  *  - open result.html and show url of cloned workbook
-  *
-  *  - if some error raised, rollback process (delete cloned workbook file)
-  *
- */
 function main() {
     const distinationSheet = SpreadsheetApp.openById("1o417W6XPp1q9s8A1IORjysuCFkX_84iF2pDt-nKyvS4").getSheetByName('内訳入力用紙');
 
