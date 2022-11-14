@@ -57,17 +57,17 @@ UKEParser.prototype.__parseRE = function (columns) {
 
 UKEParser.prototype.__parseHO = function (columns) {
     var iho = new IryouHoken(
-        __hokenjaBango = columns[1],
-        __dayCount     = Number(columns[4]),
-        __point        = Number(columns[5]),
-        __burdenAmount = columns[11] !== null ? Number(columns[11]) : null
+        __hokenjaBangou = columns[1],
+        __dayCount      = Number(columns[4]),
+        __point         = Number(columns[5]),
+        __burdenAmount  = columns[11] !== null ? Number(columns[11]) : null
     );
     this.buffer.currentReceipt.addIryouHoken(iho);
 };
 
 UKEParser.prototype.__parseKO = function (columns) {
     var kohi = new KouhiFutanIryou(
-        __futanshaBango       = columns[1],
+        __futanshaBangou      = columns[1],
         __dayCount            = Number(columns[4]),
         __point               = Number(columns[5]),
         __parenedBurdenAmount = columns[7] !== null ? Number(columns[7]) : null,

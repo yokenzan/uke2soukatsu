@@ -14,7 +14,7 @@ function main() {
     /* UKEを読み込む */
 
     // 👉👉👉👉👉👉👉ここの二重引用符のなかを希望のUKEファイルのものに書き換える👈👈👈👈👈👈👈
-    const fileIdOfTargetUke = "1m8zinMHdvR0a_8nOXdonNxMxOTCDp6o_";
+    const fileIdOfTargetUke = "1l88u4A_yYWh8ijbEA4-pwIgOb5SC_n-Y";
 
     Logger.log('-> start read UKE content.');
     const parser = new UKEParser();
@@ -80,3 +80,4 @@ function doPost(_e){
 
     return template.evaluate();
 }
+
